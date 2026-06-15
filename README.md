@@ -49,3 +49,12 @@ To improve weights before playing, uncomment the lines in `main.py`.
 Standard checkers rules on an 8x8 board. Kings (crowns) can move
 in all four diagonal directions. A draw is called after 40 moves
 without a capture, or if both players repeat moves three times.
+
+## Tests
+
+Tests are located in the `tests/` directory and are written using `pytest`.
+
+To run the tests:
+
+```bash
+pytest
