@@ -56,6 +56,8 @@ class Board:
         return board
 
     def check_win(self):
+        if len(self.player1_pieces) == 0 and len(self.player2_pieces) == 0:
+            return -1
         if len(self.player1_pieces) == 0:
             return PLAYER2
         if len(self.player2_pieces) == 0:
