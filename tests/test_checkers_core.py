@@ -42,3 +42,9 @@ def test_win():
     board.player1_pieces.clear()
 
     assert board.check_win() == PLAYER2
+
+def test_find_possible_moves():
+    board = Board()
+    possible_moves = board.find_possible_moves(PLAYER1)
+
+    assert len(possible_moves) == 7
