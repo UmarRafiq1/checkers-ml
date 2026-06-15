@@ -24,6 +24,19 @@ def is_new_position_valid(x, y, new_x, new_y, pieces, player):
     if moved_piece is None or moved_piece.player_number != player:
         return False
 
+    dx = new_x - x
+    dy = new_y - y
+
+    # If the move is a capture, verify there is a capturable piece in between old and new piece position
+    if (abs(dx) == 2 and abs(dy) == 2):
+        mid_x = x + dx // 2
+        mid_y = y + dy // 2
+        mid_piece = find_piece(mid_x, mid_y, pieces)
+        opponent = PLAYER2 if player == PLAYER1 else PLAYER1
+
+        if mid_piece is None or mid_piece.player_number != opponent:
+            return False
+
     if moved_piece.is_crown:
         possible_moves = [
             (x+1, y+1), (x-1, y+1), (x+2, y+2), (x-2, y+2),
